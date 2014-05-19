@@ -2,12 +2,14 @@ package Crystal
 {
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import Crystal.Loader.Progressbar;
 	
 	/**
-	 * ...
+	 * Catfish Studio
 	 * @author Somov Evgeniy
 	 */
-	public class Main extends Sprite 
+	
+	 public class Main extends Sprite 
 	{
 		
 		public function Main():void 
@@ -19,7 +21,9 @@ package Crystal
 		private function init(e:Event = null):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
-			// entry point
+			
+			/* Загрузка игры */
+			this.addChild(new Progressbar(800, 600));
 		}
 		
 	}
