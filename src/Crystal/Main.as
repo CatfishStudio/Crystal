@@ -1,8 +1,9 @@
 package Crystal
 {
+	import Crystal.Loader.Progressbar;
 	import flash.display.Sprite;
 	import flash.events.Event;
-	import Crystal.Loader.Progressbar;
+	import Crystal.Menu.StartMenu;
 	
 	/**
 	 * Catfish Studio
@@ -23,7 +24,8 @@ package Crystal
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			
 			/* Загрузка игры */
-			this.addChild(new Progressbar(800, 600));
+			this.addChild(new StartMenu());
+			
 		}
 		
 	}
