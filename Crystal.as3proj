@@ -78,6 +78,7 @@
     <asset path="images\crystal_5_50_50.png" />
     <asset path="images\buttonStart_1.png" />
     <asset path="images\buttonStart_2.png" />
+    <asset path="images\logo.png" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
