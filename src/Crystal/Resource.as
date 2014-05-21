@@ -1,5 +1,6 @@
 package Crystal 
 {
+	import Crystal.Units.Unit;
 	import flash.display.Sprite;
 	import flash.display.Bitmap;
 	
@@ -56,10 +57,44 @@ package Crystal
 		public static var CrystalImage5:Bitmap = new C5Image();
 		
 		
+		public static var vectorField:Vector.<Unit> = new Vector.<Unit>(); // матрица игрового поля
+		public static var arrayField:Array = [];
+		
 		
 		public function Resource() 
 		{
 			
+		}
+		
+		/* Создание ARRAY 2D массива типом спрайт */
+		public static function CreateArray2D(n:int, m:int, MySprite:Class):Array
+		{
+
+			var newArray:Array = [];
+			for (var i:int = 0; i < n; i++) {
+				var newRow:Array = [];
+				for (var j:int = 0; j < m; j++) {
+					var spriteAdd:Sprite = new MySprite();
+					newRow.push(spriteAdd);
+				}
+				newArray.push(newRow);
+			}
+			return newArray;
+		}
+		
+		/* Создание VECTOR 2D массива типом спрайт */
+		public static function CreateVector2D(n:int, m:int, MySprite:Class):Vector.<Unit>
+		{
+			var newVector:Vector.<Unit> = new Vector.<Unit>();
+			for (var i:int = 0; i < n; i++) {
+				var newRow:Vector.<Unit> = new Vector.<Unit>();
+				for (var j:int = 0; j < m; j++) {
+					var spriteAdd:Sprite = new MySprite();
+					newRow.push(spriteAdd);
+				}
+				newVector.push(newRow);
+			}
+			return newVector;
 		}
 		
 	}
