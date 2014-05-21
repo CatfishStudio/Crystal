@@ -23,10 +23,9 @@ package Crystal.Level
 			this.addChild(Resource.LevelImage);
 			this.addChild(new Grid());
 			this.addChild(new PlayingField());
+			
+			trace("Создание экземпляра класса Level1 (уровень1)");
 		}
-		
-				
-		
 	
 	}
 

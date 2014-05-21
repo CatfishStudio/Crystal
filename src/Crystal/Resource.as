@@ -42,23 +42,18 @@ package Crystal
 		/* Кристалы игрового поля */
 		[Embed(source = '../../images/crystal_1_50_50.png')]
 		public static var C1Image:Class;
-		public static var CrystalImage1:Bitmap = new C1Image();
 		[Embed(source = '../../images/crystal_2_50_50.png')]
 		public static var C2Image:Class;
-		public static var CrystalImage2:Bitmap = new C2Image();
 		[Embed(source = '../../images/crystal_3_50_50.png')]
 		public static var C3Image:Class;
-		public static var CrystalImage3:Bitmap = new C3Image();
 		[Embed(source = '../../images/crystal_4_50_50.png')]
 		public static var C4Image:Class;
-		public static var CrystalImage4:Bitmap = new C4Image();
 		[Embed(source = '../../images/crystal_5_50_50.png')]
 		public static var C5Image:Class;
-		public static var CrystalImage5:Bitmap = new C5Image();
 		
 		
-		public static var vectorField:Vector.<Unit> = new Vector.<Unit>(); // матрица игрового поля
-		public static var arrayField:Array = [];
+		public static var VectorField:Vector.<Unit> = new Vector.<Unit>(); // матрица игрового поля Vector
+		public static var ArrayField:Array = []; // матрица игрового поля Array
 		
 		
 		public function Resource() 
@@ -67,15 +62,15 @@ package Crystal
 		}
 		
 		/* Создание ARRAY 2D массива типом спрайт */
-		public static function CreateArray2D(n:int, m:int, MySprite:Class):Array
+		public static function CreateArray2D(n:int, m:int):Array
 		{
-
 			var newArray:Array = [];
 			for (var i:int = 0; i < n; i++) {
 				var newRow:Array = [];
 				for (var j:int = 0; j < m; j++) {
-					var spriteAdd:Sprite = new MySprite();
-					newRow.push(spriteAdd);
+					var unitAdd:Unit = new Unit();
+					unitAdd.IndexI = i; unitAdd.IndexJ = j;
+					newRow.push(unitAdd);
 				}
 				newArray.push(newRow);
 			}
@@ -96,6 +91,20 @@ package Crystal
 			}
 			return newVector;
 		}
+		
+		/* Случайный выбор */
+		public static function RandomIndex():int
+		{
+			var indexRandom:Number = Math.random() * 10;
+			var index:int = Math.round(indexRandom);
+			if (index > 0 && index <= 2) return 1;
+			if (index > 2 && index <= 4) return 2;
+			if (index > 4 && index <= 6) return 3;
+			if (index > 6 && index <= 8) return 4;
+			if (index > 8 && index <= 10) return 5;
+			return 1;
+		}
+		
 		
 	}
 

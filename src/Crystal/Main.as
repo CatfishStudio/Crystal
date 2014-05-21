@@ -40,6 +40,7 @@ package Crystal
 			//level1.addEventListener(Event.CHANGE, onChangeStart);
 			this.removeChild(sMenu);
 			this.addChild(level1);
+			trace("Уровень загружен!");
 		}
 		
 	}

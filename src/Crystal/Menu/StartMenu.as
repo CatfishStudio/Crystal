@@ -24,6 +24,8 @@ package Crystal.Menu
 			this.addChild(bStart);
 			this.addChild(new Logo(5, 545));
 			this.addChild(new Label(60, 560, 400, 50, "System", 16, 0xFFFFFF, "<b>© Catfish Studio. 2014 Copyright. All rights reserved.<b>"));
+			
+			trace("Создание экземпляра класса StartMenu");
 		}
 		
 		private function onChangeStart(e:Event):void 

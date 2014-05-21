@@ -29,6 +29,8 @@ package Crystal.Field
 			
 			/* Применяем Маску */
 			field.mask = spriteMask;
+			
+			trace("Создание экземпляра класса PlayingField");
 		}
 		
 	}

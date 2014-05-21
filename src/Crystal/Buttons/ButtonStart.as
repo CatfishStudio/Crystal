@@ -27,6 +27,8 @@ package Crystal.Buttons
 			this.addEventListener(MouseEvent.CLICK, onMouseClickButton);
 			this.addEventListener(MouseEvent.MOUSE_OUT, onMouseOutButton);
 			this.addEventListener(MouseEvent.MOUSE_OVER, onMouseOverButton);
+			
+			trace("Создание экземпляра класса ButtonStart (Кнопка Играть)");
 		}
 		
 		/*События кнопки --------------------------------------------*/

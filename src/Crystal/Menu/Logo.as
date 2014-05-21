@@ -24,6 +24,7 @@ package Crystal.Menu
 			this.addEventListener(MouseEvent.CLICK, onMouseClickButton);
 			this.addEventListener(MouseEvent.MOUSE_OUT, onMouseOutButton);
 			this.addEventListener(MouseEvent.MOUSE_OVER, onMouseOverButton);
+			trace("Создание экземпляра класса Logo");
 		}
 		
 		/*События кнопки --------------------------------------------*/

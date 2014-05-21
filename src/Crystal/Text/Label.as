@@ -14,10 +14,13 @@ package Crystal.Text
 		
 		public function Label(x:int, y:int, w:int, h:int, font:String, size:int, color:int, text:String) 
 		{
-			this.x = x;	this.y = y;
-			this.width = w;	this.height = h;
-			this.defaultTextFormat = new TextFormat(font, size, color);
-			this.htmlText = text;
+			this.x = x;	this.y = y; 			// положение
+			this.width = w;	this.height = h; 	// размер
+			this.defaultTextFormat = new TextFormat(font, size, color); // формат
+			this.htmlText = text; 				// текст
+			this.selectable = false; 			// запрет выделения текста
+			
+			trace("Создание экземпляра класса Label");
 		}
 		
 	}

@@ -23,6 +23,7 @@ package Crystal.Field
 					this.graphics.endFill();
 				}
 			}
+			trace("Создание экземпляра класса Grid (сетка)");
 		}
 		
 	}
