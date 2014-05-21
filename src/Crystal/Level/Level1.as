@@ -1,11 +1,14 @@
 package Crystal.Level 
 {
+	import Crystal.Field.Grid;
+	import Crystal.Field.PlayingField;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import Crystal.Resource;
 	import Crystal.Buttons.ButtonStart;
 	import Crystal.Menu.Logo;
 	import Crystal.Text.Label;
+	import Crystal.Field.Grid;
 	
 	/**
 	 * Catfish Studio
@@ -18,14 +21,12 @@ package Crystal.Level
 		public function Level1() 
 		{
 			this.addChild(Resource.LevelImage);
-			CreateField();
+			this.addChild(new Grid());
+			this.addChild(new PlayingField());
 		}
 		
-		/* построение игрового поля */
-		private function CreateField():void
-		{
-			
-		}
+				
+		
 	
 	}
 
