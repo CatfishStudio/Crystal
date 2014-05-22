@@ -7,6 +7,8 @@ package Crystal.Units
 	import flash.ui.Mouse;
 	import flash.ui.MouseCursor;
 	import Crystal.Resource;
+	import Crystal.Field.Mechanics;
+	import Crystal.Text.Label;
 	
 	/**
 	 * Catfish Studio
@@ -26,8 +28,6 @@ package Crystal.Units
 		private var iCrystal5:Bitmap = new Resource.C5Image();
 		
 		private var click:Boolean = false; // флаг нажатия на кристал
-		private var cursorX:int = 0; // Положение курсора над кресталом по X
-		private var cursorY:int = 0; // Положение курсора над кресталом по Y
 			
 		
 		public function Unit() 
@@ -37,7 +37,7 @@ package Crystal.Units
 			if (Index == 3) this.addChild(iCrystal3);
 			if (Index == 4) this.addChild(iCrystal4);
 			if (Index == 5) this.addChild(iCrystal5);
-			
+				
 			/*события*/
 			this.addEventListener(MouseEvent.CLICK, onMouseClick);
 			this.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
@@ -57,20 +57,41 @@ package Crystal.Units
 		
 		private function onMouseDown(e:MouseEvent):void
 		{
-			cursorX = e.localX; cursorY = e.localY;
 			click = true; // флаг - кристал нажат
 		}
 		
 		private function onMouseUp(e:MouseEvent):void
 		{
-			cursorX = 0; cursorY = 0;
 			click = false; // флаг - кристал не нажат
 		}
 		
 		private function onMouseMove(e:MouseEvent):void
 		{
 			if (click) {
-				
+				/* Смещение по горизонтале вправо */
+				if (e.localX > 45 && e.localY < 45) {
+					Mechanics.BackMove(this, Resource.ArrayField[this.IndexI][this.IndexJ + 1]);
+					trace("e.localX > 45 && e.localY < 45");
+					click = false;
+				}
+				/* Смещение по горизонтале влево */
+				if (e.localX < 5 && e.localY > 5) {
+					Mechanics.BackMove(this, Resource.ArrayField[this.IndexI][this.IndexJ - 1]);
+					trace("e.localX < 5 && e.localY > 5");
+					click = false;
+				}
+				/* Смещение вертикале вверх */
+				if (e.localY < 5 && e.localX > 5) {
+					Mechanics.BackMove(this, Resource.ArrayField[this.IndexI - 1][this.IndexJ]);
+					trace("e.localY < 5 && e.localX > 5");
+					click = false;
+				}
+				/* Смещение вертикале вниз */
+				if (e.localY > 45 && e.localX < 45) {
+					Mechanics.BackMove(this, Resource.ArrayField[this.IndexI + 1][this.IndexJ]);
+					trace("e.localY > 45 && e.localX < 45");
+					click = false;
+				}
 			}
 		}
 		

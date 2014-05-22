@@ -3,6 +3,7 @@ package Crystal.Field
 	import flash.display.Sprite;
 	import Crystal.Resource;
 	import Crystal.Units.Unit;
+	import Crystal.Text.Label;
 	
 	/**
 	 * Catfish Studio
@@ -32,10 +33,12 @@ package Crystal.Field
 		/* Отображение кристалов на игровом поле */
 		private function ShowUnits(n:int, m:int)
 		{
+			// i - столбец; j - строка
 			for (var i:int = 0; i < n; i++) {
 				for (var j:int = 0; j < m; j++) {
 					Resource.ArrayField[i][j].x = 50 * i;
 					Resource.ArrayField[i][j].y = 50 * j;
+					Resource.ArrayField[i][j].addChild(new Label(10, 10, 50, 50, "System", 16, 0x000000, "i" + Resource.ArrayField[i][j].IndexI.toString() + ":j" + Resource.ArrayField[i][j].IndexJ.toString()));
 					this.addChild(Resource.ArrayField[i][j]);
 				}
 			}

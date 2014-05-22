@@ -52,7 +52,7 @@ package Crystal
 		public static var C5Image:Class;
 		
 		
-		public static var VectorField:Vector.<Unit> = new Vector.<Unit>(); // матрица игрового поля Vector
+		//public static var VectorField:Vector.<Unit> = new Vector.<Unit>(); // матрица игрового поля Vector
 		public static var ArrayField:Array = []; // матрица игрового поля Array
 		
 		
@@ -64,6 +64,7 @@ package Crystal
 		/* Создание ARRAY 2D массива типом спрайт */
 		public static function CreateArray2D(n:int, m:int):Array
 		{
+			// i - столбец; j - строка
 			var newArray:Array = [];
 			for (var i:int = 0; i < n; i++) {
 				var newRow:Array = [];
@@ -78,6 +79,7 @@ package Crystal
 		}
 		
 		/* Создание VECTOR 2D массива типом спрайт */
+		/*
 		public static function CreateVector2D(n:int, m:int, MySprite:Class):Vector.<Unit>
 		{
 			var newVector:Vector.<Unit> = new Vector.<Unit>();
@@ -91,6 +93,7 @@ package Crystal
 			}
 			return newVector;
 		}
+		*/
 		
 		/* Случайный выбор */
 		public static function RandomIndex():int
