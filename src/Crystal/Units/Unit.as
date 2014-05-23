@@ -72,25 +72,25 @@ package Crystal.Units
 			if (click) {
 				/* Смещение по горизонтале вправо */
 				if (e.localX > 35 && e.localY < 35) {
-					Mechanics.BackMove(this, Resource.ArrayField[this.IndexI + 1][this.IndexJ]);
+					Mechanics.MechanicBackMove(this, Resource.ArrayField[this.IndexI + 1][this.IndexJ], "Right:I+1");
 					trace("Смещение по горизонтале вправо X > 45 и Y < 45");
 					click = false;
 				}
 				/* Смещение по горизонтале влево */
 				if (e.localX < 5 && e.localY > 5) {
-					Mechanics.BackMove(this, Resource.ArrayField[this.IndexI - 1][this.IndexJ]);
+					Mechanics.MechanicBackMove(this, Resource.ArrayField[this.IndexI - 1][this.IndexJ], "Left:I-1");
 					trace("Смещение по горизонтале влево X < 5 и Y > 5");
 					click = false;
 				}
 				/* Смещение по вертикале вверх */
 				if (e.localY < 5 && e.localX > 5) {
-					Mechanics.BackMove(this, Resource.ArrayField[this.IndexI][this.IndexJ - 1]);
+					Mechanics.MechanicBackMove(this, Resource.ArrayField[this.IndexI][this.IndexJ - 1], "Up:J-1");
 					trace("Смещение по вертикале вверх Y < 5 и X > 5");
 					click = false;
 				}
 				/* Смещение по вертикале вниз */
 				if (e.localY > 35 && e.localX < 35) {
-					Mechanics.BackMove(this, Resource.ArrayField[this.IndexI][this.IndexJ + 1]);
+					Mechanics.MechanicBackMove(this, Resource.ArrayField[this.IndexI][this.IndexJ + 1], "Down:J+1");
 					trace("Смещение по вертикале вниз Y > 45 и X < 45");
 					click = false;
 				}
@@ -99,6 +99,7 @@ package Crystal.Units
 		
 		private function onMouseOut(e:MouseEvent):void
 		{
+			click = false;
 			Mouse.cursor = MouseCursor.AUTO;
 		}
 		
