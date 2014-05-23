@@ -2,6 +2,7 @@ package Crystal.Field
 {
 	import Crystal.Units.Unit;
 	import Crystal.Animation.BackMove;
+	import Crystal.Resource;
 	
 	/**
 	 * Catfish Studio
@@ -14,17 +15,22 @@ package Crystal.Field
 		
 		
 		
-		/* Механика: смена позиций и возврат */
-		public static function MechanicBackMove(cristal1:Unit, cristal2:Unit, destination:String)
+		/* Механика: Пользователь сделал ход */
+		public static function ActionMove(cristal1:Unit, cristal2:Unit, destination:String)
 		{
 			var bMove:BackMove = new BackMove(cristal1, cristal2, destination);
-			//cristal2.x = cristal1.x;
-			//cristal2.y = cristal1.y;
-			
+			//CheckMove(cristal1);
 			trace("Механика: смена позиций и возврат");
 		}
 		
-		
+		/* Механика: Проверка результата совершенного хода пользователем */
+		public static function CheckMove(crystal:Unit):Boolean
+		{
+			var index:int = crystal.Index;
+			
+			
+			return true;
+		}
 	}
 
 }

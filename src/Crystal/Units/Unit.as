@@ -72,25 +72,25 @@ package Crystal.Units
 			if (click) {
 				/* Смещение по горизонтале вправо */
 				if (e.localX > 35 && e.localY < 35) {
-					if(this.IndexI < 9) Mechanics.MechanicBackMove(this, Resource.ArrayField[this.IndexI + 1][this.IndexJ], "Right:I+1");
+					if(this.IndexI < 9) Mechanics.ActionMove(this, Resource.ArrayField[this.IndexI + 1][this.IndexJ], "Right:I+1");
 					trace("Смещение по горизонтале вправо X > 45 и Y < 45");
 					click = false;
 				}
 				/* Смещение по горизонтале влево */
 				if (e.localX < 5 && e.localY > 5) {
-					if(this.IndexI > 0) Mechanics.MechanicBackMove(this, Resource.ArrayField[this.IndexI - 1][this.IndexJ], "Left:I-1");
+					if(this.IndexI > 0) Mechanics.ActionMove(this, Resource.ArrayField[this.IndexI - 1][this.IndexJ], "Left:I-1");
 					trace("Смещение по горизонтале влево X < 5 и Y > 5");
 					click = false;
 				}
 				/* Смещение по вертикале вверх */
 				if (e.localY < 5 && e.localX > 5) {
-					if(this.IndexJ > 0) Mechanics.MechanicBackMove(this, Resource.ArrayField[this.IndexI][this.IndexJ - 1], "Up:J-1");
+					if(this.IndexJ > 0) Mechanics.ActionMove(this, Resource.ArrayField[this.IndexI][this.IndexJ - 1], "Up:J-1");
 					trace("Смещение по вертикале вверх Y < 5 и X > 5");
 					click = false;
 				}
 				/* Смещение по вертикале вниз */
 				if (e.localY > 35 && e.localX < 35) {
-					if(this.IndexJ < 9) Mechanics.MechanicBackMove(this, Resource.ArrayField[this.IndexI][this.IndexJ + 1], "Down:J+1");
+					if(this.IndexJ < 9) Mechanics.ActionMove(this, Resource.ArrayField[this.IndexI][this.IndexJ + 1], "Down:J+1");
 					trace("Смещение по вертикале вниз Y > 45 и X < 45");
 					click = false;
 				}
