@@ -4,6 +4,7 @@ package Crystal.Field
 	import Crystal.Animation.BackMove;
 	import Crystal.Animation.ExchangeMove;
 	import Crystal.Resource;
+	import flash.display.Sprite;
 	
 	/**
 	 * Catfish Studio
@@ -141,16 +142,19 @@ package Crystal.Field
 		}
 		
 		/* Механика: Проверка всего поля */
-		public static function CheckField()
+		public static function CheckField():Boolean
 		{
+			var resultCheck:Boolean = false;
 			/* i - столбец; j - строка */
 			for (var i:int = 0; i < 10; i++) {
-				CheckColumn(i);
+				if (CheckColumn(i) == true) resultCheck = true;
 				for (var j:int = 0; j < 10; j++) {
-					CheckRow(j);
+					if (CheckRow(j) == true) resultCheck = true;
 				}
 			}
+			
 			trace("Механика: Проверка всего поля");
+			return resultCheck;
 		}
 		
 		/* Механика: Удаление на поле всех отмеченных ячеек */
@@ -159,7 +163,11 @@ package Crystal.Field
 			/* i - столбец; j - строка */
 			for (var i:int = 0; i < 10; i++) {
 				for (var j:int = 0; j < 10; j++) {
-					if (Resource.ArrayField[i][j].Remove == true) Resource.ArrayField[i][j].alpha = 0.1;
+					if (Resource.ArrayField[i][j].Remove == true) {
+						Resource.ArrayField[i][j].alpha = 0.1;
+						//Resource.ArrayField[i][j] = null;
+					
+					}
 				}
 			}
 			trace("Механика: Удаление помеченных ячеек");

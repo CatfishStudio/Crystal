@@ -44,6 +44,9 @@ package Crystal.Field
 			}
 			trace("Отображение кристалов на игровом поле");
 			/* Автоматическая обработка созданного с целью поиска уже созданных групп кристалов */
+			/*while (Mechanics.CheckField()) {
+				Mechanics.Remove();
+			}*/
 			Mechanics.CheckField();
 			Mechanics.Remove();
 		}
