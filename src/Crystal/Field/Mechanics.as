@@ -22,7 +22,6 @@ package Crystal.Field
 			/* Обмен кристалов местами в массиве */
 			ExchangeCrystals(crystal1, crystal2); // обмен кристалов местами
 			
-			
 			if (CheckRow(crystal1.IndexJ) == true || CheckColumn(crystal1.IndexI) == true) {
 				/* 1-й кристал собран в группу
 				 * Выполняем обработку 2-го кристала */
@@ -49,19 +48,22 @@ package Crystal.Field
 					/* Оба кристала не вошли в группу */
 					ExchangeCrystals(crystal2, crystal1); // обратный обмен кристалов местами
 					bMove = new BackMove(crystal1, crystal2, destination);
+					
 				}
 			}
 			
 			trace("Механика: Пользователь сделал ход");
 		}
 		
-		/* Обмен в массиве выбранных пользователем кристалов местами */
+		/* Механика: Обмен в массиве выбранных пользователем кристалов местами */
 		public static function ExchangeCrystals(crystal1:Unit, crystal2:Unit)
 		{
 			var crystal:Unit = new Unit();
 			crystal = crystal1;
-			crystal1 = crystal2;
-			crystal2 = crystal;
+			trace("СТРОКА ДА: " + Resource.ArrayField[crystal1.IndexI][crystal1.IndexJ].IndexJ.toString());
+			Resource.ArrayField[crystal1.IndexI][crystal1.IndexJ] = crystal2;
+			Resource.ArrayField[crystal2.IndexI][crystal2.IndexJ] = crystal;
+			trace("СТРОКА ПОСЛЕ: " + Resource.ArrayField[crystal1.IndexI][crystal1.IndexJ].IndexJ.toString());
 			
 			trace("Механика: Обмен кристалов местами");
 		}
@@ -140,17 +142,31 @@ package Crystal.Field
 			return resultCheck;
 		}
 		
-		/* Удаление на поле всех отмеченных ячеек */
+		/* Механика: Проверка всего поля */
+		public static function CheckField()
+		{
+			/* i - столбец; j - строка */
+			for (var i:int = 0; i < 10; i++) {
+				CheckColumn(i);
+				for (var j:int = 0; j < 10; j++) {
+					CheckRow(j);
+				}
+			}
+			trace("Механика: Проверка всего поля");
+		}
+		
+		/* Механика: Удаление на поле всех отмеченных ячеек */
 		public static function Remove()
 		{
-			// i - столбец; j - строка
+			/* i - столбец; j - строка */
 			for (var i:int = 0; i < 10; i++) {
 				for (var j:int = 0; j < 10; j++) {
-					if (Resource.ArrayField[i][j].Remove == true) Resource.ArrayField[i][j].visible = false;
+					if (Resource.ArrayField[i][j].Remove == true) Resource.ArrayField[i][j].alpha = 0.1;
 				}
 			}
 			trace("Механика: Удаление помеченных ячеек");
 		}
+		
 		
 	}
 

@@ -75,6 +75,7 @@ package Crystal.Animation
         private function completeHandler(e:TimerEvent):void 
 		{
 			// таймер остановлен
+			trace("Анимация: Возврат хода.");
 		}
 		
 	}

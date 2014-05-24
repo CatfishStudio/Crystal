@@ -4,6 +4,7 @@ package Crystal.Field
 	import Crystal.Resource;
 	import Crystal.Units.Unit;
 	import Crystal.Text.Label;
+	import Crystal.Field.Mechanics;
 	
 	/**
 	 * Catfish Studio
@@ -28,8 +29,7 @@ package Crystal.Field
 			trace("Создание экземпляра класса Field");
 		}
 		
-		/* Заполнение матрици кристалами */
-		
+				
 		/* Отображение кристалов на игровом поле */
 		private function ShowUnits(n:int, m:int)
 		{
@@ -43,6 +43,9 @@ package Crystal.Field
 				}
 			}
 			trace("Отображение кристалов на игровом поле");
+			/* Автоматическая обработка созданного с целью поиска уже созданных групп кристалов */
+			Mechanics.CheckField();
+			Mechanics.Remove();
 		}
 		
 	}
