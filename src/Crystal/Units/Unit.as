@@ -20,6 +20,7 @@ package Crystal.Units
 		public var Index:int = Resource.RandomIndex(); // тип ячейки
 		public var IndexI:int = 0; // положение обекта в массиве (по I)
 		public var IndexJ:int = 0; // положение обекта в массиве (по J)
+		public var Remove:Boolean = false; // флаг удаления кристала
 		
 		private var iCrystal1:Bitmap = new Resource.C1Image();
 		private var iCrystal2:Bitmap = new Resource.C2Image();
@@ -28,7 +29,7 @@ package Crystal.Units
 		private var iCrystal5:Bitmap = new Resource.C5Image();
 		
 		private var click:Boolean = false; // флаг нажатия на кристал
-			
+		
 		
 		public function Unit() 
 		{
@@ -107,6 +108,8 @@ package Crystal.Units
 		{
 			Mouse.cursor = MouseCursor.BUTTON;
 		}
+		
+		
 	}
 
 }

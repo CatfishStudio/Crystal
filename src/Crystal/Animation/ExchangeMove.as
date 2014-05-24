@@ -10,18 +10,18 @@ package Crystal.Animation
 	 * @author Somov Evgeniy
 	 */
 	
-	public class BackMove 
+	public class ExchangeMove 
 	{
 		/* Таймер --------------------------------------------------*/
 		private var delay:uint = 50;
-        private var repeat:uint = 10;
+        private var repeat:uint = 5;
 		private var timer:Timer = new Timer(delay, repeat);
 		private var crystalMove1:Unit;
 		private var crystalMove2:Unit;
 		private var destinationMove:String = "";
 		/* -------------------------------------------------------- */
 		
-		public function BackMove(crystal1:Unit, crystal2:Unit, destination:String) 
+		public function ExchangeMove(crystal1:Unit, crystal2:Unit, destination:String) 
 		{
 			crystalMove1 = crystal1;
 			crystalMove2 = crystal2;
@@ -35,40 +35,24 @@ package Crystal.Animation
 		{
 			repeat--; // уменьшение повторов
 			if (destinationMove == "Right:I+1") {
-				if(repeat > 4){
 					crystalMove1.x += 10;
 					crystalMove2.x -= 10;
-				}else {
-					crystalMove1.x -= 10;
-					crystalMove2.x += 10;
-				}
+				
 			}
 			if (destinationMove == "Left:I-1") {
-				if(repeat > 4){
 					crystalMove1.x -= 10;
 					crystalMove2.x += 10;
-				}else {
-					crystalMove1.x += 10;
-					crystalMove2.x -= 10;
-				}
+				
 			}
 			if (destinationMove == "Up:J-1") {
-				if(repeat > 4){
 					crystalMove1.y -= 10;
 					crystalMove2.y += 10;
-				}else {
-					crystalMove1.y += 10;
-					crystalMove2.y -= 10;
-				}
+				
 			}
 			if (destinationMove == "Down:J+1") {
-				if(repeat > 4){
 					crystalMove1.y += 10;
 					crystalMove2.y -= 10;
-				}else {
-					crystalMove1.y -= 10;
-					crystalMove2.y += 10;
-				}
+				
 			}
         }
 
@@ -76,7 +60,6 @@ package Crystal.Animation
 		{
 			// таймер остановлен
 		}
-		
 	}
 
 }
