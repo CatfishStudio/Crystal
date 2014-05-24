@@ -22,11 +22,11 @@ package Crystal.Field
 			/* Обмен кристалов местами в массиве */
 			ExchangeCrystals(crystal1, crystal2); // обмен кристалов местами
 			
-			if (CheckRow(crystal1.IndexJ) == true || CheckColumn(crystal1.IndexI) == true) {
+			if (CheckRow(Resource.ArrayField[crystal1.IndexI][crystal1.IndexJ].IndexJ) == true || CheckColumn(Resource.ArrayField[crystal1.IndexI][crystal1.IndexJ].IndexI) == true) {
 				/* 1-й кристал собран в группу
 				 * Выполняем обработку 2-го кристала */
-				CheckRow(crystal2.IndexJ); 
-				CheckColumn(crystal2.IndexI);
+				CheckRow(Resource.ArrayField[crystal2.IndexI][crystal2.IndexJ].IndexJ); 
+				CheckColumn(Resource.ArrayField[crystal2.IndexI][crystal2.IndexJ].IndexI);
 				/* Анимация */
 				eMove = new ExchangeMove(crystal1, crystal2, destination);
 			
@@ -36,7 +36,7 @@ package Crystal.Field
 			}else {
 				/* 1-й кристал НЕ собран в группу
 				 * Выполняем проверку 2-го кристала */
-				if (CheckRow(crystal2.IndexJ) == true || CheckColumn(crystal2.IndexI) == true) {
+				if (CheckRow(Resource.ArrayField[crystal2.IndexI][crystal2.IndexJ].IndexJ) == true || CheckColumn(Resource.ArrayField[crystal2.IndexI][crystal2.IndexJ].IndexI) == true) {
 					/* 2-й кристал собран в группу */
 					
 					/* Анимация */
@@ -60,10 +60,8 @@ package Crystal.Field
 		{
 			var crystal:Unit = new Unit();
 			crystal = crystal1;
-			trace("СТРОКА ДА: " + Resource.ArrayField[crystal1.IndexI][crystal1.IndexJ].IndexJ.toString());
 			Resource.ArrayField[crystal1.IndexI][crystal1.IndexJ] = crystal2;
 			Resource.ArrayField[crystal2.IndexI][crystal2.IndexJ] = crystal;
-			trace("СТРОКА ПОСЛЕ: " + Resource.ArrayField[crystal1.IndexI][crystal1.IndexJ].IndexJ.toString());
 			
 			trace("Механика: Обмен кристалов местами");
 		}
