@@ -3,6 +3,7 @@ package Crystal.Field
 	import Crystal.Units.Unit;
 	import Crystal.Animation.BackMove;
 	import Crystal.Animation.ExchangeMove;
+	import Crystal.Animation.DownMove;
 	import Crystal.Resource;
 	import Crystal.Animation.Stars;
 	import flash.display.Sprite;
@@ -161,16 +162,40 @@ package Crystal.Field
 		/* Механика: Удаление на поле всех отмеченных ячеек */
 		public static function Remove(fieldParent:Sprite)
 		{
-			/* i - столбец; j - строка */
-			for (var i:int = 0; i < 10; i++) {
-				for (var j:int = 0; j < 10; j++) {
-					if (Resource.ArrayField[i][j].Remove == true) {
+						
+			for (var i:int = 0; i < 10; i++) { 		/* i - столбец (обработка слева на право) */
+			
+				/* Обработка кристалов в массиве и на поле. Удаление, добавление и смещение кристалов на поле */
+				var indexJ:int = 9; // обновлённый индекс от 9 до 0
+				for (var j:int = 9; j >= 0; j--) {	/* j2 - строка  (обработка снизу вверх) */
+				
+					if (Resource.ArrayField[i][j].Remove == true) { /* УДАЛЯЕМ */
 						Resource.ArrayField[i][j].alpha = 0.1;
-						//Resource.ArrayField[i][j] = null;
-						//fieldParent.removeChild(Resource.ArrayField[i][j]);
+						
+						/* Анимация звёзд */
 						fieldParent.addChild(new Stars(Resource.ArrayField[i][j].x, Resource.ArrayField[i][j].y, fieldParent));
+						/* Удаление кристала с поля */
+						//fieldParent.removeChild(Resource.ArrayField[i][j]);
+						
+												
+						/* Онуление кристала в массиве */
+						//Resource.ArrayField[i].pop();
+						
+					} else { /* НЕ УДАЛЯЕМ */
+						/* Анимация перемешения кристала вниз*/
+						var dMove:DownMove = new DownMove(indexJ, Resource.ArrayField[i][j]); // (новый индекс строки, кристал)
+						/* Перемещение кристала в массиве */
+						Resource.ArrayField[i][j].IndexJ = indexJ; // обновили индекс строки
+						indexJ--; // уменьшаем индекс (от 9 до 0)
+						
+						//Resource.ArrayField[i].unshift(Resource.ArrayField[i][j]); // вставляем в начало массива
+						//Resource.ArrayField[i].pop(); //удаляем значение в конце массива
+						
 					}
 				}
+				
+				
+				
 			}
 			trace("Механика: Удаление помеченных ячеек");
 		}
