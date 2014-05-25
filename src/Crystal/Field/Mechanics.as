@@ -165,7 +165,43 @@ package Crystal.Field
 						
 			for (var i:int = 0; i < 10; i++) { 		/* i - столбец (обработка слева на право) */
 			
-				/* Обработка кристалов в массиве и на поле. Удаление, добавление и смещение кристалов на поле */
+				/* Удаление помеченных кристалов */
+				var arrayCrystal:Array = [];
+				for (var j1:int = 9; j1 >= 0; j1--) {
+					if (Resource.ArrayField[i][j1].Remove == true) { /* УДАЛЯЕМ */
+						/* Анимация звёзд */
+						fieldParent.addChild(new Stars(Resource.ArrayField[i][j1].x, Resource.ArrayField[i][j1].y, fieldParent));
+						/* Удаление кристала с поля */
+						fieldParent.removeChild(Resource.ArrayField[i][j]);
+						/* Удаляем в массиве */
+						Resource.ArrayField[i].pop();
+					}else { /* НЕ УДАЛЯЕМ */
+						/* Сохраняем кристал в промежуточный массив */
+						arrayCrystal.push(Resource.ArrayField[i][j1]);
+						/* Удаляем в массиве */
+						Resource.ArrayField[i].pop();
+					}
+				}
+				
+				/* Возвращаем оставщиеся кристалы в массив игрового поля */
+				for (var j2:int = 9; j2 >= 0; j2--) {
+					Resource.ArrayField[i].push(arrayCrystal[j2]);
+				}
+				
+				/* Анимация перемещения кристалов вниз на пустые места 
+				 * Добавление новых кристалов на поле
+				 * */
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				var indexJ:int = 9; // обновлённый индекс от 9 до 0
 				for (var j:int = 9; j >= 0; j--) {	/* j2 - строка  (обработка снизу вверх) */
 				
