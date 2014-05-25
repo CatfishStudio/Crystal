@@ -170,12 +170,12 @@ package Crystal.Field
 				for (var j:int = 9; j >= 0; j--) {	/* j2 - строка  (обработка снизу вверх) */
 				
 					if (Resource.ArrayField[i][j].Remove == true) { /* УДАЛЯЕМ */
-						Resource.ArrayField[i][j].alpha = 0.1;
+						//Resource.ArrayField[i][j].alpha = 0.1;
 						
 						/* Анимация звёзд */
 						fieldParent.addChild(new Stars(Resource.ArrayField[i][j].x, Resource.ArrayField[i][j].y, fieldParent));
 						/* Удаление кристала с поля */
-						//fieldParent.removeChild(Resource.ArrayField[i][j]);
+						fieldParent.removeChild(Resource.ArrayField[i][j]);
 						
 												
 						/* Онуление кристала в массиве */

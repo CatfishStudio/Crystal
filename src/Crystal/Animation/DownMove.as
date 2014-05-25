@@ -14,7 +14,7 @@ package Crystal.Animation
 	public class DownMove 
 	{
 		/* Таймер --------------------------------------------------*/
-		private var delay:uint = 50;
+		private var delay:uint = 25;
         private var repeat:uint = 0;
 		private var timer:Timer = new Timer(delay, repeat);
 		/* -------------------------------------------------------- */

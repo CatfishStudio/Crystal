@@ -20,17 +20,16 @@ package Crystal
 		{
 			if (stage) init();
 			else addEventListener(Event.ADDED_TO_STAGE, init);
-		}
-		
-		private function init(e:Event = null):void 
-		{
-			removeEventListener(Event.ADDED_TO_STAGE, init);
 			
 			/* Главное меню игры */
 			sMenu = new StartMenu();
 			sMenu.addEventListener(Event.CHANGE, onChangeStart);
 			this.addChild(sMenu);
-			
+		}
+		
+		private function init(e:Event = null):void 
+		{
+			removeEventListener(Event.ADDED_TO_STAGE, init);
 		}
 		
 		
