@@ -21,6 +21,7 @@ package Crystal.Units
 		public var IndexI:int = 0; // положение обекта в массиве (по I)
 		public var IndexJ:int = 0; // положение обекта в массиве (по J)
 		public var Remove:Boolean = false; // флаг удаления кристала
+		public var FieldParent:Sprite; // родительский спрайт (Игровое поле)
 		
 		private var iCrystal1:Bitmap = new Resource.C1Image();
 		private var iCrystal2:Bitmap = new Resource.C2Image();

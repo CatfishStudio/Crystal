@@ -4,6 +4,7 @@ package Crystal.Field
 	import Crystal.Animation.BackMove;
 	import Crystal.Animation.ExchangeMove;
 	import Crystal.Resource;
+	import Crystal.Animation.Stars;
 	import flash.display.Sprite;
 	
 	/**
@@ -32,7 +33,7 @@ package Crystal.Field
 				eMove = new ExchangeMove(crystal1, crystal2, destination);
 			
 				/* Производим удаление кристалов */
-				Remove();
+				Remove(crystal1.FieldParent);
 				
 			}else {
 				/* 1-й кристал НЕ собран в группу
@@ -43,7 +44,7 @@ package Crystal.Field
 					/* Анимация */
 					eMove = new ExchangeMove(crystal1, crystal2, destination);
 					/* Производим удаление кристалов */
-					Remove();
+					Remove(crystal2.FieldParent);
 					
 				} else {
 					/* Оба кристала не вошли в группу */
@@ -158,7 +159,7 @@ package Crystal.Field
 		}
 		
 		/* Механика: Удаление на поле всех отмеченных ячеек */
-		public static function Remove()
+		public static function Remove(fieldParent:Sprite)
 		{
 			/* i - столбец; j - строка */
 			for (var i:int = 0; i < 10; i++) {
@@ -166,7 +167,8 @@ package Crystal.Field
 					if (Resource.ArrayField[i][j].Remove == true) {
 						Resource.ArrayField[i][j].alpha = 0.1;
 						//Resource.ArrayField[i][j] = null;
-					
+						//fieldParent.removeChild(Resource.ArrayField[i][j]);
+						fieldParent.addChild(new Stars(Resource.ArrayField[i][j].x, Resource.ArrayField[i][j].y, fieldParent));
 					}
 				}
 			}

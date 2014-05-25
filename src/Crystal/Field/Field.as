@@ -38,6 +38,7 @@ package Crystal.Field
 				for (var j:int = 0; j < m; j++) {
 					Resource.ArrayField[i][j].x = 50 * i;
 					Resource.ArrayField[i][j].y = 50 * j;
+					Resource.ArrayField[i][j].FieldParent = this; // Кристал получает ссылку на родительский спрайт (игровое поле)
 					/////Resource.ArrayField[i][j].addChild(new Label(10, 10, 50, 50, "System", 16, 0x000000, "i" + Resource.ArrayField[i][j].IndexI.toString() + ":j" + Resource.ArrayField[i][j].IndexJ.toString()));
 					this.addChild(Resource.ArrayField[i][j]);
 				}
@@ -48,7 +49,7 @@ package Crystal.Field
 				Mechanics.Remove();
 			}*/
 			Mechanics.CheckField();
-			Mechanics.Remove();
+			Mechanics.Remove(this);
 		}
 		
 	}

@@ -51,7 +51,11 @@ package Crystal
 		[Embed(source = '../../images/crystal_5_50_50.png')]
 		public static var C5Image:Class;
 		
+		/* Картинка анимации звёзд */
+		[Embed(source = '../../images/stars.png')]
+		public static var StarsImage:Class;
 		
+		/* Массив (игровое поле) */
 		//public static var VectorField:Vector.<Unit> = new Vector.<Unit>(); // матрица игрового поля Vector
 		public static var ArrayField:Array = []; // матрица игрового поля Array
 		
