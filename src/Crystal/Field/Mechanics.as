@@ -6,6 +6,7 @@ package Crystal.Field
 	import Crystal.Animation.DownMove;
 	import Crystal.Resource;
 	import Crystal.Animation.Stars;
+	import Crystal.Text.Label;
 	import flash.display.Sprite;
 	
 	/**
@@ -193,9 +194,10 @@ package Crystal.Field
 						/* Добавление новых кристалов на поле */
 						var unitAdd:Unit = new Unit();
 						unitAdd.IndexI = i; unitAdd.IndexJ = j2 - 10;
-						unitAdd.x = 50 * i; unitAdd.y = - 50;
-						Resource.ArrayField[i].push(unitAdd);
-						
+						unitAdd.x = 50 * i; unitAdd.y = -50; //50 * (j2 - 10);
+						///////////unitAdd.addChild(new Label(10, 10, 50, 50, "System", 16, 0x000000, "i" + i.toString() + ":j" + j2.toString()));
+						Resource.ArrayField[i].push(unitAdd); 	// добавляем новый кристал в массив
+						fieldParent.addChild(unitAdd);			// добавляем новый кристал на поле (спрайт)
 					}
 					
 				}
@@ -211,9 +213,9 @@ package Crystal.Field
 				}
 				
 				/* ТЕСТ!!! */
-				for (var j4:int = 0; j4 < 10; j4++) {
-					trace("(ЗАВЕРШЕНИЕ) СТОЛБЕЦ №:" + i.toString() + "  СТРОКА №:" + j4.toString() + " | Индекс(i)=" + Resource.ArrayField[i][j4].IndexI.toString() + "; Индекс(j)=" + Resource.ArrayField[i][j4].IndexJ.toString());
-				}
+				//for (var j4:int = 0; j4 < 10; j4++) {
+				//	trace("(ЗАВЕРШЕНИЕ) СТОЛБЕЦ №:" + i.toString() + "  СТРОКА №:" + j4.toString() + " | Индекс(i)=" + Resource.ArrayField[i][j4].IndexI.toString() + "; Индекс(j)=" + Resource.ArrayField[i][j4].IndexJ.toString());
+				//}
 				
 			}
 			trace("Механика: Удаление помеченных ячеек");
