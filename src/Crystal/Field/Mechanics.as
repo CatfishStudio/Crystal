@@ -172,69 +172,53 @@ package Crystal.Field
 						/* Анимация звёзд */
 						fieldParent.addChild(new Stars(Resource.ArrayField[i][j1].x, Resource.ArrayField[i][j1].y, fieldParent));
 						/* Удаление кристала с поля */
-						fieldParent.removeChild(Resource.ArrayField[i][j]);
+						fieldParent.removeChild(Resource.ArrayField[i][j1]);
 						/* Удаляем в массиве */
-						Resource.ArrayField[i].pop();
+						Resource.ArrayField[i].pop(); // Удаляем из массива
 					}else { /* НЕ УДАЛЯЕМ */
 						/* Сохраняем кристал в промежуточный массив */
 						arrayCrystal.push(Resource.ArrayField[i][j1]);
 						/* Удаляем в массиве */
-						Resource.ArrayField[i].pop();
+						Resource.ArrayField[i].pop(); // Удаляем из массива
 					}
 				}
 				
 				/* Возвращаем оставщиеся кристалы в массив игрового поля */
 				for (var j2:int = 9; j2 >= 0; j2--) {
-					Resource.ArrayField[i].push(arrayCrystal[j2]);
+					if (arrayCrystal[j2] != undefined) {
+						/* Перемещение кристала в массиве */
+						//arrayCrystal[j2].IndexI = i; arrayCrystal[j2].IndexJ = j2;
+						Resource.ArrayField[i].push(arrayCrystal[j2]); // Переносим (добавляем) в массив
+					}else {
+						/* Добавление новых кристалов на поле */
+						var unitAdd:Unit = new Unit();
+						unitAdd.IndexI = i; unitAdd.IndexJ = j2 - 10;
+						unitAdd.x = 50 * i; unitAdd.y = - 50;
+						Resource.ArrayField[i].push(unitAdd);
+						
+					}
+					
 				}
 				
-				/* Анимация перемещения кристалов вниз на пустые места 
-				 * Добавление новых кристалов на поле
-				 * */
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				var indexJ:int = 9; // обновлённый индекс от 9 до 0
-				for (var j:int = 9; j >= 0; j--) {	/* j2 - строка  (обработка снизу вверх) */
-				
-					if (Resource.ArrayField[i][j].Remove == true) { /* УДАЛЯЕМ */
-						//Resource.ArrayField[i][j].alpha = 0.1;
-						
-						/* Анимация звёзд */
-						fieldParent.addChild(new Stars(Resource.ArrayField[i][j].x, Resource.ArrayField[i][j].y, fieldParent));
-						/* Удаление кристала с поля */
-						fieldParent.removeChild(Resource.ArrayField[i][j]);
-						
-												
-						/* Онуление кристала в массиве */
-						//Resource.ArrayField[i].pop();
-						
-					} else { /* НЕ УДАЛЯЕМ */
-						/* Анимация перемешения кристала вниз*/
-						var dMove:DownMove = new DownMove(indexJ, Resource.ArrayField[i][j]); // (новый индекс строки, кристал)
-						/* Перемещение кристала в массиве */
-						Resource.ArrayField[i][j].IndexJ = indexJ; // обновили индекс строки
-						indexJ--; // уменьшаем индекс (от 9 до 0)
-						
-						//Resource.ArrayField[i].unshift(Resource.ArrayField[i][j]); // вставляем в начало массива
-						//Resource.ArrayField[i].pop(); //удаляем значение в конце массива
-						
+				/* Анимация перемещения кристалов вниз на пустые места */
+				if (arrayCrystal.length < 10) {
+					for (var j3:int = 9; j3 >= 0; j3--) {
+						/* Анимация перемещения кристалов вниз на пустые места */
+						var dMove:DownMove = new DownMove(i, j3, Resource.ArrayField[i][j3]); // (новый индекс строки, кристал)
+						Resource.ArrayField[i][j3].IndexI = i;
+						Resource.ArrayField[i][j3].IndexJ = j3;
 					}
 				}
 				
-				
+				/* ТЕСТ!!! */
+				for (var j4:int = 0; j4 < 10; j4++) {
+					trace("(ЗАВЕРШЕНИЕ) СТОЛБЕЦ №:" + i.toString() + "  СТРОКА №:" + j4.toString() + " | Индекс(i)=" + Resource.ArrayField[i][j4].IndexI.toString() + "; Индекс(j)=" + Resource.ArrayField[i][j4].IndexJ.toString());
+				}
 				
 			}
 			trace("Механика: Удаление помеченных ячеек");
 		}
+		
 		
 		
 	}
