@@ -22,11 +22,11 @@ package Crystal.Units
 		public var Remove:Boolean = false; // флаг удаления кристала
 		public var FieldParent:Sprite; // родительский спрайт (Игровое поле)
 		
-		private var iCrystal1:Bitmap = new Resource.C1Image(); // Кристал №1
-		private var iCrystal2:Bitmap = new Resource.C2Image(); // Кристал №2
-		private var iCrystal3:Bitmap = new Resource.C3Image(); // Кристал №3
-		private var iCrystal4:Bitmap = new Resource.C4Image(); // Кристал №4
-		private var iCrystal5:Bitmap = new Resource.C5Image(); // Кристал №5
+		private var iCrystal1:Bitmap = new Resource.C1Image(); // Кристал №1 сиренивый
+		private var iCrystal2:Bitmap = new Resource.C2Image(); // Кристал №2 зеленый
+		private var iCrystal3:Bitmap = new Resource.C3Image(); // Кристал №3 красный
+		private var iCrystal4:Bitmap = new Resource.C4Image(); // Кристал №4 синий
+		private var iCrystal5:Bitmap = new Resource.C5Image(); // Кристал №5 желтый
 		
 		private var click:Boolean = false; // флаг нажатия на кристал
 		

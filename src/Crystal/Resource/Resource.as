@@ -1,6 +1,7 @@
 package Crystal.Resource 
 {
 	import Crystal.Levels.Level1;
+	import Crystal.Text.Label;
 	import flash.display.Sprite;
 	import flash.display.Bitmap;
 	import Crystal.Units.Unit;
@@ -55,15 +56,15 @@ package Crystal.Resource
 		
 		/* Кристалы игрового поля */
 		[Embed(source = '../../../images/crystal_1_50_50.png')]
-		public static var C1Image:Class;
+		public static var C1Image:Class;	// сиренивый кристал
 		[Embed(source = '../../../images/crystal_2_50_50.png')]
-		public static var C2Image:Class;
+		public static var C2Image:Class;	// зелёный кристал
 		[Embed(source = '../../../images/crystal_3_50_50.png')]
-		public static var C3Image:Class;
+		public static var C3Image:Class;	// красный кристал
 		[Embed(source = '../../../images/crystal_4_50_50.png')]
-		public static var C4Image:Class;
+		public static var C4Image:Class;	// синий кристал
 		[Embed(source = '../../../images/crystal_5_50_50.png')]
-		public static var C5Image:Class;
+		public static var C5Image:Class;	// желтый кристал
 		
 		/* Картинка анимации звёзд */
 		[Embed(source = '../../../images/stars.png')]
@@ -77,6 +78,7 @@ package Crystal.Resource
 		
 		/* Количество ходов */
 		public static var NumberOfMoves:int = 25; // по умолчанию 25 ходов
+		public static var MovesPanelText:Label; // текст в панели (количество ходов)
 		
 		/* Количество собранных кристалов */
 		public static var NumberOfCrystals:int = 0; // по умолчанию собрано 0
