@@ -3,9 +3,9 @@ package Crystal.Text
 	import flash.text.TextField;
 	import flash.text.TextFieldType;
 	import flash.text.TextFormat;
-
+	
 	/**
-	 * Catfish Studio
+	 * ...
 	 * @author Somov Evgeniy
 	 */
 	
@@ -20,7 +20,6 @@ package Crystal.Text
 			this.htmlText = text; 				// текст
 			this.selectable = false; 			// запрет выделения текста
 			
-			trace("Создание экземпляра класса Label");
 		}
 		
 	}

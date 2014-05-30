@@ -1,16 +1,17 @@
 package Crystal.Menu 
 {
 	import flash.display.Sprite;
+	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.ui.Mouse;
 	import flash.ui.MouseCursor;
 	import flash.net.URLRequest;
 	import flash.net.navigateToURL;
-	import Crystal.Resource;
+	import Crystal.Resource.Resource;
 	
 	/**
-	 * Catfish Studio
+	 * ...
 	 * @author Somov Evgeniy
 	 */
 	
@@ -24,7 +25,7 @@ package Crystal.Menu
 			this.addEventListener(MouseEvent.CLICK, onMouseClickButton);
 			this.addEventListener(MouseEvent.MOUSE_OUT, onMouseOutButton);
 			this.addEventListener(MouseEvent.MOUSE_OVER, onMouseOverButton);
-			trace("Создание экземпляра класса Logo");
+			//trace("Создание экземпляра класса Logo");
 		}
 		
 		/*События кнопки --------------------------------------------*/

@@ -1,19 +1,19 @@
 package Crystal.Field 
 {
 	import flash.display.Sprite;
+	import Crystal.Resource.Resource;
 	/**
-	 * Catfish Studio
+	 * ...
 	 * @author Somov Evgeniy
 	 */
-	
 	public class Grid extends Sprite
 	{
 		
 		public function Grid() 
 		{
 			this.x = 150; this.y = 75;
-			for (var i:int = 1; i < 10; i++) {
-				for (var j:int = 1; j < 10; j++) {
+			for (var i:int = 1; i < Resource.COLUMNS; i++) {
+				for (var j:int = 1; j < Resource.ROWS; j++) {
 					this.graphics.lineStyle(1, 0xcccccc, 1);
 					this.graphics.beginFill(0xcccccc, 1);
 					this.graphics.moveTo(i * 50, 0);
@@ -23,7 +23,6 @@ package Crystal.Field
 					this.graphics.endFill();
 				}
 			}
-			trace("Создание экземпляра класса Grid (сетка)");
 		}
 		
 	}

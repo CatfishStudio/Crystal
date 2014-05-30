@@ -24,6 +24,7 @@
     <option allowSourcePathOverlap="False" />
     <option benchmark="False" />
     <option es="False" />
+    <option inline="False" />
     <option locale="" />
     <option loadConfig="" />
     <option optimize="True" />
@@ -67,19 +68,20 @@
   </intrinsics>
   <!-- Assets to embed into the output SWF -->
   <library>
-    <asset path="images\bgimage.png" />
-    <asset path="images\level.png" />
-    <asset path="images\menu.png" />
+    <asset path="images\buttonStart_1.png" />
+    <asset path="images\buttonStart_2.png" />
     <asset path="images\crystal.png" />
     <asset path="images\crystal_1_50_50.png" />
     <asset path="images\crystal_2_50_50.png" />
     <asset path="images\crystal_3_50_50.png" />
     <asset path="images\crystal_4_50_50.png" />
     <asset path="images\crystal_5_50_50.png" />
-    <asset path="images\buttonStart_1.png" />
-    <asset path="images\buttonStart_2.png" />
+    <asset path="images\level.png" />
     <asset path="images\logo.png" />
+    <asset path="images\menu.png" />
     <asset path="images\stars.png" />
+    <asset path="images\buttonExit_1.png" />
+    <asset path="images\buttonExit_2.png" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
@@ -97,6 +99,7 @@
   <options>
     <option showHiddenPaths="False" />
     <option testMovie="Default" />
+    <option testMovieCommand="" />
   </options>
   <!-- Plugin storage -->
   <storage />

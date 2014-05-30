@@ -6,13 +6,12 @@ package Crystal.Buttons
 	import flash.events.MouseEvent;
 	import flash.ui.Mouse;
 	import flash.ui.MouseCursor;
-	import Crystal.Resource;
+	import Crystal.Resource.Resource;
 	
 	/**
-	 * Catfish Studio
+	 * ...
 	 * @author Somov Evgeniy
 	 */
-	
 	public class ButtonStart extends Sprite
 	{
 		
@@ -28,7 +27,6 @@ package Crystal.Buttons
 			this.addEventListener(MouseEvent.MOUSE_OUT, onMouseOutButton);
 			this.addEventListener(MouseEvent.MOUSE_OVER, onMouseOverButton);
 			
-			trace("Создание экземпляра класса ButtonStart (Кнопка Играть)");
 		}
 		
 		/*События кнопки --------------------------------------------*/

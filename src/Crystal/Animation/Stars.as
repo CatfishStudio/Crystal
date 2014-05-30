@@ -8,14 +8,12 @@ package Crystal.Animation
 	import flash.utils.Timer;
     import flash.events.TimerEvent;
     import flash.events.Event;
-	
-	import Crystal.Resource;
+	import Crystal.Resource.Resource;
 	
 	/**
-	 * Catfish Studio
+	 * ...
 	 * @author Somov Evgeniy
 	 */
-	
 	public class Stars extends Sprite
 	{
 		private var imageBD:BitmapData = new BitmapData(250, 50, true, 0x000000000000); // полная картинка
@@ -25,7 +23,7 @@ package Crystal.Animation
 
 		private var rect:Rectangle = new Rectangle(0, 0, 250, 50); //исходный размер
 		private var pt:Point = new Point(0, 0); // начальная точка
-		
+
 		/* Таймер --------------------------------------------------*/
 		private var delay:uint = 50;
         private var repeat:uint = 5;
@@ -33,11 +31,11 @@ package Crystal.Animation
 		/* -------------------------------------------------------- */
 
 		private var fParent:Sprite;
-		
+
 		public function Stars(xPos:int, yPos:int, fieldParent:Sprite) 
 		{
 			fParent = fieldParent;
-			
+
 			image = new Resource.StarsImage();
 			imageBD.draw(image); // загружаем картинку
 			rect.x = 0;
@@ -45,14 +43,13 @@ package Crystal.Animation
 			starImage = new Bitmap(canvasBD);
 			this.x = xPos; this.y = yPos;
 			this.addChild(starImage);
-			
+
 			timer.addEventListener(TimerEvent.TIMER, timerHandler);
             timer.addEventListener(TimerEvent.TIMER_COMPLETE, completeHandler);
 			timer.start();
-			
 		}
 		
-		private function timerHandler(e:TimerEvent):void 
+		private function timerHandler(e:TimerEvent):void
 		{
 			repeat--; // уменьшение повторов
 			rect.x += 50;
@@ -60,12 +57,13 @@ package Crystal.Animation
 			starImage = new Bitmap(canvasBD);
         }
 
-        private function completeHandler(e:TimerEvent):void 
+        private function completeHandler(e:TimerEvent):void
 		{
 			// таймер остановлен
 			fParent.removeChild(this);
-			trace("Анимация: Звёзды.");
+			//trace("Анимация: Звёзды.");
 		}
 	}
+
 
 }

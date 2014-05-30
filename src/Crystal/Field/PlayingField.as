@@ -4,19 +4,19 @@ package Crystal.Field
 	import Crystal.Field.Field;
 	
 	/**
-	 * Catfish Studio
+	 * ...
 	 * @author Somov Evgeniy
 	 */
-	
 	public class PlayingField extends Sprite
 	{
 		/* Маска */
 		private var spriteMask:Sprite = new Sprite();
 		/* Поле */
-		private var field:Field = new Field();
+		private var field:Field;
 		
-		public function PlayingField() 
+		public function PlayingField()
 		{
+			field = new Field();
 			/* Поле под маской */
 			this.addChild(field);
 			
@@ -30,7 +30,6 @@ package Crystal.Field
 			/* Применяем Маску */
 			field.mask = spriteMask;
 			
-			trace("Создание экземпляра класса PlayingField");
 		}
 		
 	}

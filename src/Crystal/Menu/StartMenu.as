@@ -2,16 +2,15 @@ package Crystal.Menu
 {
 	import flash.display.Sprite;
 	import flash.events.Event;
-	import Crystal.Resource;
-	import Crystal.Buttons.ButtonStart;
 	import Crystal.Menu.Logo;
 	import Crystal.Text.Label;
+	import Crystal.Buttons.ButtonStart;
+	import Crystal.Resource.Resource;
 	
 	/**
-	 * Catfish Studio
+	 * ...
 	 * @author Somov Evgeniy
 	 */
-	
 	public class StartMenu extends Sprite
 	{
 		private var bStart:ButtonStart;
@@ -25,14 +24,13 @@ package Crystal.Menu
 			this.addChild(new Logo(5, 545));
 			this.addChild(new Label(60, 560, 400, 50, "System", 16, 0xFFFFFF, "<b>© Catfish Studio. 2014 Copyright. All rights reserved.<b>"));
 			
-			trace("Создание экземпляра класса StartMenu");
+			//trace("Создание экземпляра класса StartMenu");
 		}
 		
 		private function onChangeStart(e:Event):void 
 		{
 			dispatchEvent(new Event(Event.CHANGE));
 		}
-		
 	}
 
 }
