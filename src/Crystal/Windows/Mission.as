@@ -55,7 +55,7 @@ package Crystal.Windows
 			message.graphics.endFill();
 			message.x = 0; message.y = -100;
 			message.alpha = 0.8;
-			message.addChild(new Label(150, 30, 700, 50, "Times New Roman", 32, 0xFFFFFF, "Соберите 100 кристалов за " + (Resource.LevelPanel as Panel).NumberOfCrystals.toString() + " ходов."));
+			message.addChild(new Label(150, 30, 700, 50, "Times New Roman", 32, 0xFFFFFF, "Соберите 100 кристалов за " + (Resource.LevelPanel as Panel).NumberOfMoves.toString() + " ходов."));
 			message.addChild(imageCrystal);
 			this.addChild(message);
 			

@@ -4,6 +4,7 @@ package Crystal.Levels
 	import flash.display.Sprite;
 	import Crystal.Text.Label;
 	import Crystal.Resource.Resource;
+	import Crystal.Windows.Completed;
 		
 	/**
 	 * ...
@@ -32,8 +33,8 @@ package Crystal.Levels
 		
 		/*
 		 * Для обращения использовать следующие методы
-		 * (Resource.LevelPanel as Panel).ReductionMoves();
-		 * (Resource.LevelPanel as Panel).IncreasingNumberCrystals();
+		 * (Resource.LevelPanel as Panel).ReductionMoves(); 			// Сокращение ходов
+		 * (Resource.LevelPanel as Panel).IncreasingNumberCrystals();	// Увеличение количества кристалов
 		 * 
 		 * */
 		
@@ -79,6 +80,8 @@ package Crystal.Levels
 		{
 			NumberOfMoves--;
 			LabelMove.text = "Ходов: " + NumberOfMoves.toString();
+			if (NumberOfCrystals != 100 && NumberOfMoves <= 0) 
+				(Resource.Level as Level1).addChild(new Completed("Закончились ходы. Уровень проигран!"));
 		}
 		
 		/* Увеличение количества кристалов */
@@ -86,6 +89,8 @@ package Crystal.Levels
 		{
 			NumberOfCrystals++;
 			LabelCrystal.text = "Кристалов собрано " + NumberOfCrystals.toString() + " / 100";
+			if (NumberOfCrystals == 100 && NumberOfMoves >= 0)
+				(Resource.Level as Level1).addChild(new Completed("Поздравляем!!! Уровень пройден!"));
 		}
 	}
 
