@@ -2,6 +2,7 @@ package Crystal.Field
 {
 	import flash.display.Sprite;
 	import Crystal.Field.Field;
+	import Crystal.Resource.Resource;
 	
 	/**
 	 * ...
@@ -11,14 +12,12 @@ package Crystal.Field
 	{
 		/* Маска */
 		private var spriteMask:Sprite = new Sprite();
-		/* Поле */
-		private var field:Field;
 		
 		public function PlayingField()
 		{
-			field = new Field();
+			Resource.FieldGame = new Field();
 			/* Поле под маской */
-			this.addChild(field);
+			this.addChild(Resource.FieldGame);
 			
 			/* Маска */
 			spriteMask.graphics.beginFill(0x333333, 1);
@@ -28,8 +27,7 @@ package Crystal.Field
 			addChild(spriteMask);
 			
 			/* Применяем Маску */
-			field.mask = spriteMask;
-			
+			(Resource.FieldGame as Field).mask = spriteMask;
 		}
 		
 	}

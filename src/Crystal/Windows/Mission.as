@@ -7,6 +7,7 @@ package Crystal.Windows
     import flash.events.Event;
 	import Crystal.Resource.Resource;
 	import Crystal.Text.Label;
+	import Crystal.Kernel.FieldHandling;
 	
 	/**
 	 * ...
@@ -78,10 +79,9 @@ package Crystal.Windows
         private function completeHandler(e:TimerEvent):void
 		{
 			Resource.Level.removeChild(this);
-			
-			
-			/* Уровеньзавершен */
-			//Resource.Level.addChild(new Completed());
+			/* Запускаем обработку поля */
+			var fHandling:FieldHandling = new FieldHandling();
+			fHandling.Perform();
 		}
 	}
 

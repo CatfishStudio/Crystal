@@ -55,6 +55,7 @@ package Crystal.Kernel
 				for (var j:int = 0; j < Resource.ROWS; j++) { 	// СТРОКА (j)
 					Resource.ArrayField[i][j].x = 50 * i;
 					Resource.ArrayField[i][j].y = 50 * j;
+					Resource.ArrayField[i][j].IndexY = 50 * j;
 					Resource.ArrayField[i][j].FieldParent = fieldParent; // Кристал получает ссылку на родительский спрайт (игровое поле)
 					////////////Resource.ArrayField[i][j].addChild(new Label(10, 10, 50, 50, "System", 16, 0x000000, "i" + Resource.ArrayField[i][j].IndexI.toString() + ":j" + Resource.ArrayField[i][j].IndexJ.toString()));
 					fieldParent.addChild(Resource.ArrayField[i][j]);
@@ -77,9 +78,9 @@ package Crystal.Kernel
 						Resource.ArrayField[i + 1][row].Remove = true;
 						Resource.ArrayField[i + 2][row].Remove = true;
 						
-						Resource.ArrayField[i][row].alpha = 0.2;
-						Resource.ArrayField[i + 1][row].alpha = 0.2;
-						Resource.ArrayField[i + 2][row].alpha = 0.2;
+						//Resource.ArrayField[i][row].alpha = 0.2;
+						//Resource.ArrayField[i + 1][row].alpha = 0.2;
+						//Resource.ArrayField[i + 2][row].alpha = 0.2;
 
 						/* Группа из 4-х кристалов */
 						if (i < 7) {
@@ -111,7 +112,7 @@ package Crystal.Kernel
 		{
 			var resultCheck:Boolean = false;
 			/* просматриваем кристалы в столбце (по строкам) */
-			for (var j:int = 0; j < Resource.COLUMNS; j++) {
+			for (var j:int = 0; j < Resource.ROWS; j++) {
 				if (j < 8) {
 					/* Группа из 3-х кристалов */
 					if (Resource.ArrayField[column][j].Index == Resource.ArrayField[column][j + 1].Index && Resource.ArrayField[column][j].Index == Resource.ArrayField[column][j + 2].Index) {
@@ -164,7 +165,7 @@ package Crystal.Kernel
 			return resultCheck;
 		}
 		
-		/* Механика: Удаление на поле всех отмеченных ячеек */
+		/* Удаление на поле всех отмеченных ячеек (Удаление, сортировка, добавление */
 		public static function Remove(fieldParent:Sprite):Boolean
 		{
 			var resultCheck:Boolean = false;
@@ -203,16 +204,63 @@ package Crystal.Kernel
 						var unitAdd:Unit = new Unit();
 						unitAdd.IndexI = i; unitAdd.IndexJ = j2 - 10;
 						unitAdd.x = 50 * i; unitAdd.y = 0;
-						unitAdd.alpha = 0.1;
+						//unitAdd.alpha = 0.1;
 						Resource.ArrayField[i].push(unitAdd); // добавляем новый кристал в массив
 						fieldParent.addChild(unitAdd);	// добавляем новый кристал на поле (спрайт)
 					}
 				}
+				
+				/*
+				for (var i:int = 0; i < 10; i++)
+					for (var j:int = 0; j < 10; j++)
+						trace("ПОЛОЖЕНИЕ: в массиве i=" + i.toString() + " j=" + j.toString() + " | индексы i=" + (Resource.ArrayField[i][j] as Unit).IndexI.toString() + " j=" + (Resource.ArrayField[i][j] as Unit).IndexJ.toString());
+				*/
 			}
 			return resultCheck;
 		}
 		
+		/* Определение максимального количества поворов для колонки */
+		public static function RepeatColumn(column:int):int
+		{
+			var repeat:int = 0;
+			/* просматриваем кристалы в столбце (по строкам) */
+			/*
+			for (var row:int = 0; row < Resource.ROWS; row++) {
+				if ((Resource.ArrayField[column][row]as Unit).IndexJ < 0) { // новый кристал
+					if (repeat < row) repeat = row; // количество ходов
+				}else { // кристална поле
+					var sum:int = row - (Resource.ArrayField[column][row]as Unit).IndexJ;
+					if (repeat < sum) repeat = sum;	// количество ходов
+				}
+			}
+			*/
+			
+			//return repeat * 5;
+			return 45;
+			
+		}
 		
+		/* Разрешение на перемщение кристала */
+		public static function ResolutionMove(crystal:Unit):Boolean
+		{
+			if (crystal.IndexY == crystal.y) return false; // запрещаем перемещение (кристал на месте)
+			else return true; // разрешаем перемещение (кристал не на месте)
+		}
+		
+		/* Определение разницы положения кристала по Y после проведённых изменений */
+		public static function DifferenceY(column:int):void
+		{
+			for (var row:int = 0; row < Resource.ROWS; row++) {
+				/* Устанавливаем необходимое положение по Y */
+				(Resource.ArrayField[column][row]as Unit).IndexY = row * 50; // положение в котором должен находится
+			}
+		}
+		
+		/* Коректировка Индексов каждого кристала в массиве */
+		public static function Correction():Boolean
+		{
+			return false;
+		}
 	}
 
 }

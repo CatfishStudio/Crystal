@@ -20,6 +20,7 @@ package Crystal.Units
 		public var Index:int = Mechanics.RandomIndex(); // тип ячейки
 		public var IndexI:int = 0; // положение обекта в массиве (по I столбец)
 		public var IndexJ:int = 0; // положение обекта в массиве (по J строка)
+		public var IndexY:int = 0; // координата объекта по Y
 		public var Remove:Boolean = false; // флаг удаления кристала
 		public var FieldParent:Sprite; // родительский спрайт (Игровое поле)
 		

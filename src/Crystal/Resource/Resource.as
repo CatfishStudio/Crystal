@@ -80,6 +80,7 @@ package Crystal.Resource
 		public static var StartGame:Sprite;		// Родительский спрайт MAIN
 		public static var Level:Sprite;			// Родительский спрайт Level
 		public static var LevelPanel:Sprite;	// Спрайт игровой панели Panel на уровне (Level)
+		public static var FieldGame:Sprite;		// Спрайт игрового поля Field (на котором размещаются кристалы)
 		
 		public function Resource() 
 		{
