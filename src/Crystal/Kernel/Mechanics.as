@@ -248,18 +248,26 @@ package Crystal.Kernel
 		}
 		
 		/* Определение разницы положения кристала по Y после проведённых изменений */
-		public static function DifferenceY(column:int):void
+		public static function DifferenceY():void
 		{
-			for (var row:int = 0; row < Resource.ROWS; row++) {
-				/* Устанавливаем необходимое положение по Y */
-				(Resource.ArrayField[column][row]as Unit).IndexY = row * 50; // положение в котором должен находится
+			for (var col:int = 0; col < Resource.COLUMNS; col++){
+				for (var row:int = 0; row < Resource.ROWS; row++) {
+					/* Устанавливаем необходимое положение по Y */
+					(Resource.ArrayField[col][row]as Unit).IndexY = row * 50; // положение в котором должен находится
+				}
 			}
 		}
 		
 		/* Коректировка Индексов каждого кристала в массиве */
-		public static function Correction():Boolean
+		public static function Correction():void
 		{
-			return false;
+			for (var col:int = 0; col < Resource.COLUMNS; col++){
+				for (var row:int = 0; row < Resource.ROWS; row++) {
+					(Resource.ArrayField[col][row]as Unit).IndexI = col;
+					(Resource.ArrayField[col][row]as Unit).IndexJ = row;
+					(Resource.ArrayField[col][row]as Unit).IndexY = (Resource.ArrayField[col][row]as Unit).y;
+				}
+			}
 		}
 	}
 

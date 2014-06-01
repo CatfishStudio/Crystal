@@ -1,5 +1,6 @@
 package Crystal.Buttons 
 {
+	import Crystal.Kernel.FieldHandling;
 	import Crystal.Levels.Level1;
 	import Crystal.Main;
 	import flash.display.Sprite;
