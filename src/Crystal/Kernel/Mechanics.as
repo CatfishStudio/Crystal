@@ -1,5 +1,6 @@
 package Crystal.Kernel 
 {
+	import Crystal.Levels.Panel;
 	import flash.display.Sprite;
 	import Crystal.Units.Unit;
 	import Crystal.Resource.Resource;
@@ -181,7 +182,7 @@ package Crystal.Kernel
 						/* Удаляем в массиве */
 						Resource.ArrayField[i].pop(); // Удаляем из массива
 						/* Увеличиваем общее число удалённых кристалов */
-						Resource.NumberOfCrystals++;
+						(Resource.LevelPanel as Panel).IncreasingNumberCrystals();
 						/* Определяем возвращаемое значение данной функцией */
 						resultCheck = true;
 					}else { /* НЕ УДАЛЯЕМ */

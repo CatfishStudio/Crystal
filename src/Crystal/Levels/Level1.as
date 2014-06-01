@@ -21,7 +21,8 @@ package Crystal.Levels
 			this.addChild(Resource.LevelImage);	// фоновая картинка уровня
 			this.addChild(new Grid()); 			// создание сетки
 			this.addChild(new PlayingField());	// создание игрового поля
-			this.addChild(new Panel());			// создание игровой панели
+			Resource.LevelPanel = new Panel();	// создание игровой панели
+			this.addChild(Resource.LevelPanel);	// 
 			this.addChild(new ButtonExit());	// кнопка выхода с уровня
 			this.addChild(new Mission()); 		// окно описания задания на уровне
 		}

@@ -76,15 +76,10 @@ package Crystal.Resource
 		/* Блокировка игового поля */
 		public static var BlockedField:Boolean = true; // по умолчанию заблокиронано
 		
-		/* Количество ходов */
-		public static var NumberOfMoves:int = 25; // по умолчанию 25 ходов
-		public static var MovesPanelText:Label; // текст в панели (количество ходов)
-		
-		/* Количество собранных кристалов */
-		public static var NumberOfCrystals:int = 0; // по умолчанию собрано 0
-		
+		/* Глобальные спрайты */
 		public static var StartGame:Sprite;		// Родительский спрайт MAIN
-		public static var Level:Sprite;			// родительский спрайт Level
+		public static var Level:Sprite;			// Родительский спрайт Level
+		public static var LevelPanel:Sprite;	// Спрайт игровой панели Panel на уровне (Level)
 		
 		public function Resource() 
 		{

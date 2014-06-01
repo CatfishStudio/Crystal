@@ -11,13 +11,13 @@ package Crystal.Text
 	
 	public class Label extends TextField
 	{
-		
-		public function Label(x:int, y:int, w:int, h:int, font:String, size:int, color:int, text:String) 
+		public function Label(_x:int, _y:int, _w:int, _h:int, _font:String, _size:int, _color:int, _text:String) 
 		{
-			this.x = x;	this.y = y; 			// положение
-			this.width = w;	this.height = h; 	// размер
-			this.defaultTextFormat = new TextFormat(font, size, color); // формат
-			this.htmlText = text; 				// текст
+			this.text = _text;
+			this.x = _x; this.y = _y; 			// положение
+			this.width = _w; this.height = _h; 	// размер
+			this.defaultTextFormat = new TextFormat(_font, _size, _color); // формат
+			this.htmlText = this.text;			// текст
 			this.selectable = false; 			// запрет выделения текста
 			
 		}

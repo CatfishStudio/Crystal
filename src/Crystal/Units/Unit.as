@@ -1,5 +1,6 @@
 package Crystal.Units 
 {
+	import Crystal.Levels.Panel;
 	import flash.display.Sprite;
 	import flash.display.Bitmap;
 	import flash.events.Event;
@@ -54,6 +55,7 @@ package Crystal.Units
 		{
 			// при нажатии
 			trace("ИНДЕКС(i-колонка):" + IndexI.toString() + "  ИНДЕКС(j-строка):" + IndexJ.toString());
+			
 		}
 		
 		private function onMouseDown(e:MouseEvent):void

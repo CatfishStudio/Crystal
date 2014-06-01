@@ -18,38 +18,75 @@ package Crystal.Levels
 		private var iCrystal4:Bitmap = new Resource.C4Image(); // Кристал №4 синий
 		private var iCrystal5:Bitmap = new Resource.C5Image(); // Кристал №5 желтый
 		
+		/* Панельки */
+		private var panelMove:Sprite = new Sprite();	// панель ходов
+		private var panelTask:Sprite = new Sprite();	// панель задания
+		
+		/* Количество ходов */
+		public var NumberOfMoves:int = 25; // по умолчанию 25 ходов
+		private var LabelMove:Label;
+		
+		/* Количество собранных кристалов */
+		public var NumberOfCrystals:int = 0; // по умолчанию собрано 0
+		private var LabelCrystal:Label;
+		
+		/*
+		 * Для обращения использовать следующие методы
+		 * (Resource.LevelPanel as Panel).ReductionMoves();
+		 * (Resource.LevelPanel as Panel).IncreasingNumberCrystals();
+		 * 
+		 * */
+		
 		public function Panel() 
 		{
 			this.x = 0; this.y = 0;
-			this.alpha = 0.8;
+			this.alpha = 1;
 			
-			this.graphics.lineStyle(1, 0xcccccc, 1);
-			this.graphics.beginFill(0x5E7597, 1);
-			this.graphics.drawRect(150, 35, 230, 30);
-			this.graphics.endFill();
+			/* Панель: задания */
+			panelTask.graphics.lineStyle(1, 0xcccccc, 1);
+			panelTask.graphics.beginFill(0x800080, 1); //0x5E7597
+			panelTask.graphics.drawRect(130, 25, 230, 30);
+			panelTask.graphics.endFill();
+			panelTask.alpha = 0.3;
+			this.addChild(panelTask);
+			LabelCrystal = new Label(155, 30, 230, 30, "Times New Roman", 16, 0xFFFFFF, "Кристалов собрано " + NumberOfCrystals.toString() + " / 100");
+			this.addChild(LabelCrystal);
 			
-			iCrystal1.x = 0; iCrystal1.y = 25;
+			/* Панель: осталось ходов */
+			panelMove.graphics.lineStyle(1, 0xcccccc, 1);
+			panelMove.graphics.beginFill(0x800080, 1);//0x800080
+			panelMove.graphics.drawRect(25, 30, 100, 60);
+			panelMove.graphics.endFill();
+			panelMove.alpha = 0.3;
+			this.addChild(panelMove);
+			LabelMove = new Label(40, 63, 100, 30, "Times New Roman", 16, 0xFFFFFF, "Ходов: " + NumberOfMoves.toString());
+			this.addChild(LabelMove);
+		
+			iCrystal1.x = 0; iCrystal1.y = 15;
 			this.addChild(iCrystal1);
-			iCrystal2.x = 25; iCrystal2.y = 25;
+			iCrystal2.x = 25; iCrystal2.y = 15;
 			this.addChild(iCrystal2);
-			iCrystal3.x = 50; iCrystal3.y = 25;
+			iCrystal3.x = 50; iCrystal3.y = 15;
 			this.addChild(iCrystal3);
-			iCrystal4.x = 75; iCrystal4.y = 25;
+			iCrystal4.x = 75; iCrystal4.y = 15;
 			this.addChild(iCrystal4);
-			iCrystal5.x = 100; iCrystal5.y = 25;
+			iCrystal5.x = 100; iCrystal5.y = 15;
 			this.addChild(iCrystal5);
-			
-			Resource.MovesPanelText = new Label(160, 40, 230, 30, "Times New Roman", 16, 0xFFFFFF, "Кристалов собрано " + Resource.NumberOfCrystals.toString() + "/100");
-			this.addChild(Resource.MovesPanelText);
-			
-			this.graphics.lineStyle(1, 0xcccccc, 1);
-			this.graphics.beginFill(0x800080, 1);
-			this.graphics.drawRect(10, 75, 130, 30);
-			this.graphics.endFill();
-			this.addChild(new Label(20, 80, 130, 30, "Times New Roman", 16, 0xFFFFFF, "Ходов: " + Resource.NumberOfMoves.toString()));
-			
 		}
 		
+		/* Сокращение ходов */
+		public function ReductionMoves():void
+		{
+			NumberOfMoves--;
+			LabelMove.text = "Ходов: " + NumberOfMoves.toString();
+		}
+		
+		/* Увеличение количества кристалов */
+		public function IncreasingNumberCrystals():void
+		{
+			NumberOfCrystals++;
+			LabelCrystal.text = "Кристалов собрано " + NumberOfCrystals.toString() + " / 100";
+		}
 	}
 
 }
