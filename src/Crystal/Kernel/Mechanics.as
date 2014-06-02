@@ -268,6 +268,16 @@ package Crystal.Kernel
 				}
 			}
 		}
+		
+		
+		/* Обмен в массиве выбранных пользователем кристалов местами */
+		public static function ExchangeCrystals(columnCrystal1:int, rowCrystal1:int, columnCrystal2:int, rowCrystal2:int):void
+		{
+			var crystalMove:Unit = new Unit();
+			crystalMove = Resource.ArrayField[columnCrystal1][rowCrystal1];
+			Resource.ArrayField[columnCrystal1][rowCrystal1] = Resource.ArrayField[columnCrystal2][rowCrystal2];
+			Resource.ArrayField[columnCrystal2][rowCrystal2] = crystalMove;
+		}
 	}
 
 }
