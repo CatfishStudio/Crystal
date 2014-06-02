@@ -126,7 +126,7 @@ package Crystal.Kernel
 					if (performSwappingBack == false) {	// выполняем обратную смену мест кристалов в массиве
 						performSwappingBack = true;
 						Mechanics.ExchangeCrystals(ColumnCrystal1, RowCrystal1, ColumnCrystal2, RowCrystal2);
-						repeat = 10;
+						repeat = 12;
 						Perform();
 						trace("ОБРАТНОЕ СМЕЩЕНИЕ: " + Moving);
 					} else { // СЛЕДУЮЩЕЕ ДЕЙСТВИЕ ---------------------------------------------------
