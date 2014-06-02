@@ -1,5 +1,6 @@
 package Crystal.Kernel 
 {
+	import Crystal.Levels.Panel;
 	import Crystal.Units.Unit;
 	import flash.utils.Timer;
     import flash.events.TimerEvent;
@@ -113,6 +114,7 @@ package Crystal.Kernel
 				if (performMove == false) {		// выполняем анимацию смена мест кристалов
 					performMove = true;
 					if (Mechanics.CheckField()) {	// ГРУППА СФОРМИРОВАНА
+						(Resource.LevelPanel as Panel).ReductionMoves();
 						/* Запускаем обработку поля */
 						var fHandling:FieldHandling = new FieldHandling();
 						fHandling.Perform();
