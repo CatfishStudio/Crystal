@@ -222,7 +222,7 @@ package Crystal.Kernel
 		/* Определение максимального количества поворов для колонки */
 		public static function RepeatColumn(column:int):int
 		{
-			var repeat:int = 0;
+			//var repeat:int = 0;
 			/* просматриваем кристалы в столбце (по строкам) */
 			/*
 			for (var row:int = 0; row < Resource.ROWS; row++) {
@@ -237,7 +237,6 @@ package Crystal.Kernel
 			
 			//return repeat * 5;
 			return 45;
-			
 		}
 		
 		/* Разрешение на перемщение кристала */

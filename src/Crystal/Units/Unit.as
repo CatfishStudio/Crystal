@@ -71,7 +71,7 @@ package Crystal.Units
 		private function onMouseMove(e:MouseEvent):void
 		{
 			/* i - столбец; j - строка */
-			
+			if(Resource.BlockedField == false){	// Игровое поле разблокировано
 			if (click) {
 				/* Смещение по горизонтале вправо */
 				if (e.localX > 35 && e.localY < 35) {
@@ -97,6 +97,7 @@ package Crystal.Units
 					//trace("Смещение по вертикале вниз Y > 45 и X < 45");
 					click = false;
 				}
+			}
 			}
 		}
 		
