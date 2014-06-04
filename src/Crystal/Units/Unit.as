@@ -31,7 +31,7 @@ package Crystal.Units
 		private var iCrystal4:Bitmap = new Resource.C4Image(); // Кристал №4 синий
 		private var iCrystal5:Bitmap = new Resource.C5Image(); // Кристал №5 желтый
 		
-		private var click:Boolean = false; // флаг нажатия на кристал
+		public var click:Boolean = false; // флаг нажатия на кристал
 		
 		public function Unit() 
 		{

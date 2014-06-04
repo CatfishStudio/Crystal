@@ -265,6 +265,8 @@ package Crystal.Kernel
 					(Resource.ArrayField[col][row]as Unit).IndexI = col;
 					(Resource.ArrayField[col][row]as Unit).IndexJ = row;
 					(Resource.ArrayField[col][row]as Unit).IndexY = (Resource.ArrayField[col][row]as Unit).y;
+					(Resource.ArrayField[col][row]as Unit).Remove = false;
+					(Resource.ArrayField[col][row]as Unit).click = false;
 				}
 			}
 		}

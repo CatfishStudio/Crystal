@@ -50,7 +50,7 @@ package Crystal.Levels
 			panelTask.graphics.endFill();
 			panelTask.alpha = 0.3;
 			this.addChild(panelTask);
-			LabelCrystal = new Label(155, 30, 230, 30, "Times New Roman", 16, 0xFFFFFF, "Кристалов собрано " + NumberOfCrystals.toString() + " / 100");
+			LabelCrystal = new Label(155, 30, 230, 30, "Times New Roman", 16, 0xFFFFFF, "Кристалов собрано " + NumberOfCrystals.toString() + " / 200");
 			this.addChild(LabelCrystal);
 			
 			/* Панель: осталось ходов */
@@ -80,7 +80,7 @@ package Crystal.Levels
 		{
 			NumberOfMoves--;
 			LabelMove.text = "Ходов: " + NumberOfMoves.toString();
-			if (NumberOfCrystals != 100 && NumberOfMoves <= 0) 
+			if (NumberOfCrystals != 200 && NumberOfMoves <= 0) 
 				(Resource.Level as Level1).addChild(new Completed("Закончились ходы. Уровень проигран!"));
 		}
 		
@@ -88,8 +88,8 @@ package Crystal.Levels
 		public function IncreasingNumberCrystals():void
 		{
 			NumberOfCrystals++;
-			LabelCrystal.text = "Кристалов собрано " + NumberOfCrystals.toString() + " / 100";
-			if (NumberOfCrystals == 100 && NumberOfMoves >= 0)
+			LabelCrystal.text = "Кристалов собрано " + NumberOfCrystals.toString() + " / 200";
+			if (NumberOfCrystals == 200 && NumberOfMoves >= 0)
 				(Resource.Level as Level1).addChild(new Completed("Поздравляем!!! Уровень пройден!"));
 		}
 	}
