@@ -107,6 +107,7 @@ package Crystal.Kernel
 			if (performSwapping == false) { 	// выполняем смену мест кристалов в массиве
 				performSwapping = true;
 				Mechanics.ExchangeCrystals(ColumnCrystal1, RowCrystal1, ColumnCrystal2, RowCrystal2);
+				Resource.PlaySoundMove();		// воспроизведение звука
 				repeat = 6;
 				Perform();
 				trace("СМЕЩЕНИЕ: " + Moving);

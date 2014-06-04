@@ -24,7 +24,6 @@
     <option allowSourcePathOverlap="False" />
     <option benchmark="False" />
     <option es="False" />
-    <option inline="False" />
     <option locale="" />
     <option loadConfig="" />
     <option optimize="True" />
@@ -82,6 +81,8 @@
     <asset path="images\stars.png" />
     <asset path="images\buttonExit_1.png" />
     <asset path="images\buttonExit_2.png" />
+    <asset path="sounds\match.mp3" />
+    <asset path="sounds\move.mp3" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
@@ -99,7 +100,6 @@
   <options>
     <option showHiddenPaths="False" />
     <option testMovie="Default" />
-    <option testMovieCommand="" />
   </options>
   <!-- Plugin storage -->
   <storage />

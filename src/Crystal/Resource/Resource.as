@@ -4,6 +4,8 @@ package Crystal.Resource
 	import Crystal.Text.Label;
 	import flash.display.Sprite;
 	import flash.display.Bitmap;
+	import flash.media.Sound;
+	import flash.media.SoundChannel;
 	import Crystal.Units.Unit;
 	
 	/**
@@ -70,6 +72,16 @@ package Crystal.Resource
 		[Embed(source = '../../../images/stars.png')]
 		public static var StarsImage:Class;
 		
+		/* Звуки */
+		[Embed(source = '../../../sounds/move.mp3')]
+		public static var SoundMove:Class;
+		public static var sMove:Sound = new SoundMove() as Sound;
+		[Embed(source = '../../../sounds/match.mp3')]
+		public static var SoundMatch:Class;
+		public static var sMatch:Sound = new SoundMatch() as Sound;
+		
+		public static var SChannel:SoundChannel;
+		
 		/* Массив (игровое поле) */
 		public static var ArrayField:Array = []; // матрица игрового поля Array
 		
@@ -87,7 +99,15 @@ package Crystal.Resource
 			
 		}
 		
+		public static function PlaySoundMove():void
+		{
+			SChannel = sMove.play();
+		}
 		
+		public static function PlaySoundMatch():void
+		{
+			SChannel = sMatch.play();
+		}
 	}
 
 }
