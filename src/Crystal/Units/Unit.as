@@ -75,7 +75,7 @@ package Crystal.Units
 			if(Resource.BlockedField == false){	// Игровое поле разблокировано
 			if (click) {
 				/* Смещение по горизонтале вправо */
-				if (e.localX > 35 && e.localY < 35) {
+				if (e.localX > 35 && e.localY < 35 && e.localY > 5) {
 					if (this.IndexI < 9) {
 						var uAction:UserAction = new UserAction();
 						uAction.ColumnCrystal1 = this.IndexI;
@@ -89,7 +89,7 @@ package Crystal.Units
 					click = false;
 				}
 				/* Смещение по горизонтале влево */
-				if (e.localX < 5 && e.localY > 5) {
+				if (e.localX < 5 && e.localY > 5 && e.localY < 35) {
 					if (this.IndexI > 0) {
 						var uAction:UserAction = new UserAction();
 						uAction.ColumnCrystal1 = this.IndexI;
@@ -103,7 +103,7 @@ package Crystal.Units
 					click = false;
 				}
 				/* Смещение по вертикале вверх */
-				if (e.localY < 5 && e.localX > 5) {
+				if (e.localY < 5 && e.localX > 5 && e.localX < 35) {
 					if (this.IndexJ > 0) {
 						var uAction:UserAction = new UserAction();
 						uAction.ColumnCrystal1 = this.IndexI;
@@ -117,7 +117,7 @@ package Crystal.Units
 					click = false;
 				}
 				/* Смещение по вертикале вниз */
-				if (e.localY > 35 && e.localX < 35) {
+				if (e.localY > 35 && e.localX < 35 && e.localX > 5) {
 					if (this.IndexJ < 9) {
 						var uAction:UserAction = new UserAction();
 						uAction.ColumnCrystal1 = this.IndexI;
